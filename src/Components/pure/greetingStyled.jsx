@@ -3,14 +3,17 @@ import React, { useState } from "react";
 //definiendo stylos en contaste
 
 // ? estilo para usuario loggeado
-const loggedStyle = {
-  color: "white",
-};
-// ? estilo para usuario no loggeado
-const unloggedStyle = {
-  color: "tomato",
-  fontWeigth: "bold",
-};
+const loggedStyle ={
+  backgroundColor:'green',
+  color: 'while',
+  fontWeigth: 'bold'
+
+ }
+ const unloggedStyle ={
+  backgroundColor:'tomato',
+  color: 'while',
+  fontWeigth: 'bold'
+ }
 
 const GreetingStyled = (props) => {
   //generamos un estado para el componente y ase manejar  si es usuario esta loggeado  no

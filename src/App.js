@@ -10,6 +10,8 @@ import GreetingStyled from './Components/pure/greetingStyled';
 import Tarea2 from './hooks/lifecycle/tarea2';
 import Father from './Components/container/father';
 import ContactListCompent from './Components/container/contact_list';
+import OptionalRender from './Components/pure/optionalRender';
+import Ejercicio1011y12 from './hooks/ejercicio10,11y12';
 function App() {
   return (
     <div className="App">
@@ -36,8 +38,12 @@ function App() {
       {/* </header> */}
       {/* <TaskListComponent ></TaskListComponent> */}
       {/* <Father></Father> */}
-      <ContactListCompent></ContactListCompent>
-    </div>
+      {/* <ContactListCompent></ContactListCompent> */}
+      {/* Ejemplos de renderizado condicional */}
+
+      {/* <OptionalRender></OptionalRender> */}
+    <Ejercicio1011y12></Ejercicio1011y12>
+      </div>
   );
 }
 

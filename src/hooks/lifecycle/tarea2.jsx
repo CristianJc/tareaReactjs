@@ -16,6 +16,16 @@ const Tarea2 = () => {
             clearInterval (timerID);
         };
     },[]);
+    const tick=()=>{
+        setState((prevState) => {
+           let edad = prevState.edad +1;
+           return {
+              ...prevState,
+              fecha: new Date(),
+              edad
+           }
+        });
+     }
     return (
         <div>
          <h2>
@@ -33,15 +43,6 @@ const Tarea2 = () => {
 
 
 
-const tick=()=>{
-    this.setState((prevState) => {
-       let edad = prevState.edad +1;
-       return {
-          ...prevState,
-          fecha: new Date(),
-          edad
-       }
-    });
- }
+
 
 export default Tarea2;
