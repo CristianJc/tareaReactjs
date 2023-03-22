@@ -4,6 +4,8 @@ import { Task } from "../../models/task.class";
 import TaskComponent from "../pure/task";
 import "../../styles/taskStyle.scss";
 import TaskForm from "../pure/forms/taskForm";
+import TaskFormik from "../pure/forms/taskFormik";
+
 const TaskListComponent = () => {
   const defaultTask1 = new Task(
     "Example1",
@@ -31,8 +33,11 @@ const TaskListComponent = () => {
   //control del ciclo de vida del componehnte
 
   useEffect(() => {
-    console.log("task state has been modified");
-    setLoading(false);
+    console.log("task state has been modified")
+    setTimeout(() => {
+      setLoading(false);
+    }, 2000);;
+    
     return () => {
       console.log("task list componente is going to unmoun..");
     };
@@ -56,25 +61,14 @@ const TaskListComponent = () => {
 
   function addTask(task){
     console.log("Delete this task:", task);
-    const index = tasks.indexOf(task);
     const temptasks = [...tasks];
     temptasks.push(task);
     setTask(temptasks)
   }
-  return (
-    <div>
-      <div className="col-12">
-        <div className="card">
-          <div className="card-header p-3">
-            <h5>Your Task:</h5>
-          </div>
-          {/* /**contendio de la tarjeta */}
-          <div
-            className="card-body"
-            data-mdb-perfect-scrollbar="true"
-            style={{ position: "relative", height: "400px" }}
-          >
-            <table>
+
+  const Table =()=> {
+    return(
+      <table>
               <thead>
                 <tr>
                   <th scope="col">Title</th>
@@ -97,11 +91,46 @@ const TaskListComponent = () => {
                 })}
               </tbody>
             </table>
+    )
+  }
+
+  let tasksTable;
+  if(tasks.length>0){
+    tasksTable  = <Table></Table>
+  }else {
+
+    tasksTable = (
+      <div>
+    <h3>There are no tasks to show</h3>
+      <h4>Please, create one</h4>
+    </div>
+    )
+  }
+
+  const loadingStyle ={
+    color:'gray',
+    fontSize:'30px',
+    fontWeight: 'bold'
+  }
+  return (
+    <div>
+      <div className="col-12">
+        <div className="card">
+          <div className="card-header p-3">
+            <h5>Your Task:</h5>
+          </div>
+          {/* /**contendio de la tarjeta */}
+          <div
+            className="card-body"
+            data-mdb-perfect-scrollbar="true"
+            style={{ position: "relative", height: "400px" }}
+          >
+           {loading ? (<p style={loadingStyle}>loading task list</p>): tasksTable}
           </div>
         </div>
       </div>
       {/* TODO aplicar un for/map para renderizar una lista */}
-      <TaskForm add={addTask}></TaskForm>
+      <TaskFormik add={addTask} length={tasks.length}></TaskFormik>
     </div>
   );
 };
