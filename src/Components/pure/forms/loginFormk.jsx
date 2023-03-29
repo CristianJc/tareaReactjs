@@ -1,6 +1,8 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
+import Button from "@mui/material/Button";
 
 const loginSchema = Yup.object().shape({
   email: Yup.string()
@@ -13,6 +15,12 @@ const LoginFormk = () => {
     email: "",
     password: "",
   };
+
+  const history= useHistory();
+  const register = () => {
+    history.push("/register");
+  };
+
   return (
     <div>
       <h4>Login Formik</h4>
@@ -25,7 +33,8 @@ const LoginFormk = () => {
         onSubmit={async (values) => {
           await new Promise((r) => setTimeout(r, 1000));
           alert(JSON.stringify(values, null, 2));
-          localStorage.setItem("credentials", values);
+         await  localStorage.setItem("credentials", values);
+         history.push('/profile');
         }}
       >
         {({
@@ -64,6 +73,8 @@ const LoginFormk = () => {
 
               <button type="submit">Login</button>
               {isSubmitting ? <p>Login your Credentials....</p> : null}
+
+              <Button variant="contained" onClick={register}> Register</Button>
             </Form>
         )}
         

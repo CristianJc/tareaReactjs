@@ -5,6 +5,7 @@ import TaskComponent from "../pure/task";
 import "../../styles/taskStyle.scss";
 import TaskForm from "../pure/forms/taskForm";
 import TaskFormik from "../pure/forms/taskFormik";
+import { useLocation,useHistory } from 'react-router-dom';
 
 const TaskListComponent = () => {
   const defaultTask1 = new Task(
@@ -112,6 +113,21 @@ const TaskListComponent = () => {
     fontSize:'30px',
     fontWeight: 'bold'
   }
+
+  const location =useLocation();
+  const history =useHistory();
+
+  const navigate=(path)=>{
+      history.push(path);
+  }
+
+  const goBack=()=>{
+      history.goBack();
+
+  }
+  const goForward=()=>{
+      history.goForward();
+  }
   return (
     <div>
       <div className="col-12">
@@ -130,8 +146,20 @@ const TaskListComponent = () => {
         </div>
       </div>
       {/* TODO aplicar un for/map para renderizar una lista */}
-      <TaskFormik add={addTask} length={tasks.length}></TaskFormik>
+      <TaskForm add={addTask} length={tasks.length}></TaskForm>
+      <div>
+                <button onClick={()=>navigate('/')} >
+                    Go to Home
+                </button>
+                <button  onClick={goBack}>
+                    Go back
+                </button>
+                <button  onClick={goBack}>
+                    Go back
+                </button>
+            </div>
     </div>
+
   );
 };
 
