@@ -14,6 +14,11 @@ import OptionalRender from './Components/pure/optionalRender';
 import Ejercicio1011y12 from './hooks/ejercicio10,11y12';
 import LoginFormk from './Components/pure/forms/loginFormk';
 import RegisterFormik from './Components/pure/forms/registerFormik';
+import AsynsExample from './Components/pure/AsynsExample';
+import ObservableExample from './Components/pure/ObservableExample';
+import FetchExample from './Components/pure/FetchExample';
+import AxiosExample from './Components/pure/forms/AxiosExample';
+import AxiosAPIChuck from './Components/pure/forms/AxiosAPIChuck'
 function App() {
   return (
     <div className="App">
@@ -38,7 +43,7 @@ function App() {
 {/* <GreetingStyled name="Crisitan"></GreetingStyled> */}
 {/* <Tarea2></Tarea2> */}
       {/* </header> */}
-      <TaskListComponent ></TaskListComponent>
+      {/* <TaskListComponent ></TaskListComponent> */}
       {/* <Father></Father> */}
       {/* <ContactListCompent></ContactListCompent> */}
       {/* Ejemplos de renderizado condicional */}
@@ -47,6 +52,9 @@ function App() {
     {/* <Ejercicio1011y12></Ejercicio1011y12> */}
     {/* <LoginFormk></LoginFormk> */}
     {/* <RegisterFormik></RegisterFormik> */}
+    {/* <AsynsExample></AsynsExample> */}
+    {/* <ObservableExample></ObservableExample> */}
+    <AxiosAPIChuck></AxiosAPIChuck>
       </div>
   );
 }
